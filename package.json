@@ -1,0 +1,50 @@
+{
+  "name": "curly-parakeet",
+  "version": "0.0.1",
+  "description": "doodrop hapi backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doodrop/curly-parakeet.git"
+  },
+  "keywords": [
+    "hapi",
+    "doodrop"
+  ],
+  "author": "gazy&osman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doodrop/curly-parakeet/issues"
+  },
+  "homepage": "https://github.com/doodrop/curly-parakeet#readme",
+  "dependencies": {
+    "bcryptjs": "2.4.0",
+    "bluebird": "3.4.7",
+    "boom": "4.2.0",
+    "co": "4.6.0",
+    "hapi": "16.1.0",
+    "hapi-async-handler": "1.0.3",
+    "hapi-auth-jwt2": "7.2.4",
+    "hapi-swagger": "7.6.0",
+    "inert": "4.1.0",
+    "joi": "10.2.0",
+    "jsonwebtoken": "7.2.1",
+    "moment": "2.17.1",
+    "pg": "^6.1.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "3.30.0",
+    "vision": "4.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "7.1.1",
+    "eslint": "3.14.0",
+    "eslint-config-airbnb": "14.0.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "3.0.2",
+    "eslint-plugin-react": "6.9.0"
+  }
+}

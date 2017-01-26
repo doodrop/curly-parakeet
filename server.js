@@ -8,6 +8,7 @@ const vision = require('vision');
 const inert = require('inert');
 const hapiSwagger = require('hapi-swagger');
 const hapiAuthJwt = require('hapi-auth-jwt2');
+const routes = require('./app/routes/index');
 
 const hapiSwaggerOptions = {
 	info: {
@@ -27,18 +28,20 @@ server.connection({
 	},
 });
 
-const plugins = [{
-	register: hapiAsyncHandler,
-}, {
-	register: vision,
-}, {
-	register: inert,
-}, {
-	register: hapiSwagger,
-	options: hapiSwaggerOptions,
-}, {
-	register: hapiAuthJwt,
-}];
+const plugins = [
+	{
+		register: hapiAsyncHandler,
+	}, {
+		register: vision,
+	}, {
+		register: inert,
+	}, {
+		register: hapiSwagger,
+		options: hapiSwaggerOptions,
+	}, {
+		register: hapiAuthJwt,
+	},
+];
 
 server.register(plugins, (err) => {
 	if (err) {
@@ -48,6 +51,7 @@ server.register(plugins, (err) => {
 		if (error) {
 			throw error;
 		}
+		server.route(routes);
 		console.log(`server running at: ${server.info.uri}`);
 	});
 });

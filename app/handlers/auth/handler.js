@@ -1,16 +1,16 @@
 const authService = require('./service');
 const boomHelper = require('../common/boom-helper');
 
-const login = function* login(req, reply) {
+const signin = function* signin(req, reply) {
 	const { email, password } = req.payload;
 	try {
-		const loginUser = yield authService.login(email, password);
-		reply(loginUser);
+		const signinUser = yield authService.signin(email, password);
+		reply(signinUser);
 	} catch (err) {
 		reply(boomHelper.dispatchBoomCall(err));
 	}
 };
 
 module.exports = {
-	login,
+	signin,
 };

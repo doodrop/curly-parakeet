@@ -6,7 +6,7 @@ const authHandler = require('../handlers/auth/handler');
 
 module.exports = [{
 	method: 'POST',
-	path: '/login',
+	path: '/signin',
 	config: {
 		validate: {
 			payload: {
@@ -16,7 +16,7 @@ module.exports = [{
 		},
 		auth: false,
 		handler: {
-			async: co.wrap(authHandler.login),
+			async: co.wrap(authHandler.signin),
 		},
 	},
 }];

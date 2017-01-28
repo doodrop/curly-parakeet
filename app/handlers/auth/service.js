@@ -3,7 +3,7 @@ const jwtHelper = require('../common/jwt-helper');
 const encryptionHelper = require('../common/encryption-helper');
 const authHelper = require('./helper');
 
-const login = Promise.coroutine(function* login(email, password) {
+const signin = Promise.coroutine(function* signin(email, password) {
 	try {
 		const user = yield authHelper.getUserByEmail(email);
 		if (user === null || !encryptionHelper.verifyPassword(user.password, password)) {
@@ -23,5 +23,5 @@ const login = Promise.coroutine(function* login(email, password) {
 });
 
 module.exports = {
-	login,
+	signin,
 };

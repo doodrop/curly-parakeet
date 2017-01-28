@@ -4,7 +4,7 @@ const Joi = require('joi');
 
 module.exports = [{
 	method: 'POST',
-	path: '/user',
+	path: '/signup',
 	config: {
 		validate: {
 			payload: {
@@ -17,8 +17,6 @@ module.exports = [{
 		handler: {
 			async: co.wrap(userHandler.createUser),
 		},
-		auth: {
-			mode: 'required',
-		},
+		auth: false,
 	},
 }];

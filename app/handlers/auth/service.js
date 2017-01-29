@@ -12,7 +12,7 @@ const signin = Promise.coroutine(function* signin(email, password) {
 				message: 'Invalid email address or password.',
 			});
 		}
-		const token = jwtHelper.issueToken(user);
+		const token = jwtHelper.issueToken(user.get({ plain: true }));
 		return Promise.resolve({
 			token,
 			user,

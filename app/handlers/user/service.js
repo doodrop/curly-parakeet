@@ -4,17 +4,17 @@ const jwtHelper = require('../common/jwt-helper');
 
 const createUser = Promise.coroutine(function* createUser(name, email, password) {
 	try {
-		const user = yield userHelper.getUserByEmail(email);
-		if (user !== null) {
+		const dbUser = yield userHelper.getUserByEmail(email);
+		if (dbUser !== null) {
 			return Promise.reject({
 				code: 400,
 				message: 'Email already used by another user.',
 			});
 		}
-		const createdUser = yield userHelper.createUser(name, email, password);
-		const token = jwtHelper.issueToken(createdUser);
+		const user = yield userHelper.createUser(name, email, password);
+		const token = jwtHelper.issueToken(user);
 		return Promise.resolve({
-			createdUser,
+			user,
 			token,
 		});
 	} catch (err) {

@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const models = require('../../../models/index');
 const encryptionHelper = require('../common/encryption-helper');
 
-const getUserByEmail = (db, email) => (
+const getUserByEmail = email => (
 	new Promise((resolve, reject) => {
 		models.User.findOne({
 			where: {
@@ -23,7 +23,7 @@ const createUser = (name, email, password) => (
 				password: encryptionHelper.encrypt(password),
 			})
 			.then((user) => {
-				resolve(user);
+				resolve(user.get({ plain: true }));
 			})
 			.catch(err => reject(err));
 	})

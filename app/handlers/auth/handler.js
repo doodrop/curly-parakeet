@@ -7,7 +7,6 @@ const signin = function* signin(req, reply) {
 		const signinUser = yield authService.signin(email, password);
 		reply(signinUser);
 	} catch (err) {
-		console.log('err', err);
 		reply(boomHelper.dispatchBoomCall(err));
 	}
 };

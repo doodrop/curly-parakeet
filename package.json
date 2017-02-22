@@ -9,7 +9,7 @@
     "migrate": "sequelize db:migrate",
     "migrate:undo": "sequelize db:migrate:undo",
     "migrate:undo:all": "sequelize db:migrate:undo:all",
-    "postinstall": "npm run migrate"
+    "postinstall": "node build/build.js"
   },
   "repository": {
     "type": "git",
